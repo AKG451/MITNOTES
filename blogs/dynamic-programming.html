@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Programming - MIT-NOTES</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="blog-header">
+        <div class="container">
+            <a href="../index.html" class="back-button">
+                <i class="fas fa-arrow-left"></i>
+                Back to Home
+            </a>
+            <h1 class="blog-title">Dynamic Programming</h1>
+            <p class="blog-subtitle">Master dynamic programming techniques with practical examples</p>
+        </div>
+    </header>
+
+    <main class="main">
+        <div class="container">
+            <article class="blog-content">
+                <!-- Title Section -->
+                <section class="blog-section">
+                    <h2 class="section-title">
+                        <i class="fas fa-heading"></i>
+                        Title
+                    </h2>
+                    <div class="section-content">
+                        <h3>Dynamic Programming: Optimization Through Memoization</h3>
+                        <p>Dynamic Programming (DP) is a powerful algorithmic paradigm that solves complex problems by breaking them down into simpler subproblems. It is particularly useful for optimization problems where the same subproblems occur multiple times.</p>
+                        <p>The key insight of dynamic programming is to store the results of expensive function calls and reuse them when the same inputs occur again, avoiding redundant calculations.</p>
+                    </div>
+                </section>
+
+                <!-- Algorithm Section -->
+                <section class="blog-section">
+                    <h2 class="section-title">
+                        <i class="fas fa-cogs"></i>
+                        Algorithm
+                    </h2>
+                    <div class="section-content">
+                        <h3>Dynamic Programming Principles</h3>
+                        <p>Dynamic Programming is applicable when a problem exhibits two key properties:</p>
+                        <ul>
+                            <li><strong>Optimal Substructure:</strong> The optimal solution contains optimal solutions to subproblems</li>
+                            <li><strong>Overlapping Subproblems:</strong> The same subproblems are solved multiple times</li>
+                        </ul>
+
+                        <h3>Two Main Approaches</h3>
+                        <h4>1. Top-Down Approach (Memoization)</h4>
+                        <ul>
+                            <li>Start with the original problem</li>
+                            <li>Break it down into subproblems recursively</li>
+                            <li>Store results in a cache (memoization table)</li>
+                            <li>Check cache before computing</li>
+                        </ul>
+
+                        <h4>2. Bottom-Up Approach (Tabulation)</h4>
+                        <ul>
+                            <li>Start with the smallest subproblems</li>
+                            <li>Build up solutions iteratively</li>
+                            <li>Store results in a table</li>
+                            <li>Use previously computed results</li>
+                        </ul>
+
+                        <h3>Common DP Problem Types</h3>
+                        <ul>
+                            <li><strong>Fibonacci Numbers:</strong> Classic example of overlapping subproblems</li>
+                            <li><strong>Longest Common Subsequence:</strong> String comparison problems</li>
+                            <li><strong>Knapsack Problem:</strong> Resource optimization</li>
+                            <li><strong>Coin Change:</strong> Making change with minimum coins</li>
+                            <li><strong>Edit Distance:</strong> String transformation</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <!-- Flowchart Section -->
+                <section class="blog-section">
+                    <h2 class="section-title">
+                        <i class="fas fa-project-diagram"></i>
+                        Flowchart
+                    </h2>
+                    <div class="section-content">
+                        <h3>Dynamic Programming Decision Flowchart</h3>
+                        <div class="flowchart">
+                            <div class="flowchart-box">Problem Analysis</div>
+                            <div class="flowchart-arrow">↓</div>
+                            <div class="flowchart-box">Optimal Substructure?</div>
+                            <div class="flowchart-arrow">↓ Yes</div>
+                            <div class="flowchart-box">Overlapping Subproblems?</div>
+                            <div class="flowchart-arrow">↓ Yes</div>
+                            <div class="flowchart-box">Choose Approach</div>
+                            <div class="flowchart-arrow">↓</div>
+                            <div class="flowchart-box">Top-Down (Memoization)</div>
+                            <div class="flowchart-box">Bottom-Up (Tabulation)</div>
+                            <div class="flowchart-arrow">↓</div>
+                            <div class="flowchart-box">Implement Solution</div>
+                            <div class="flowchart-arrow">↓</div>
+                            <div class="flowchart-box">Optimize Space/Time</div>
+                            <div class="flowchart-arrow">↓</div>
+                            <div class="flowchart-box">End</div>
+                        </div>
+
+                        <h3>Fibonacci DP Flowchart</h3>
+                        <div class="flowchart">
+                            <div class="flowchart-box">fib(n)</div>
+                            <div class="flowchart-arrow">↓</div>
+                            <div class="flowchart-box">n ≤ 1?</div>
+                            <div class="flowchart-arrow">↓ Yes</div>
+                            <div class="flowchart-box">Return n</div>
+                            <br>
+                            <div class="flowchart-box">Check Memo[n]</div>
+                            <div class="flowchart-arrow">↓ Not Found</div>
+                            <div class="flowchart-box">Compute fib(n-1) + fib(n-2)</div>
+                            <div class="flowchart-arrow">↓</div>
+                            <div class="flowchart-box">Store in Memo[n]</div>
+                            <div class="flowchart-arrow">↓</div>
+                            <div class="flowchart-box">Return Result</div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Program Section -->
+                <section class="blog-section">
+                    <h2 class="section-title">
+                        <i class="fas fa-code"></i>
+                        Program (Code)
+                    </h2>
+                    <div class="section-content">
+                        <h3>Fibonacci: Naive vs Dynamic Programming</h3>
+                        <div class="code-block">
+<span class="comment"># Naive Recursive Approach - O(2^n)</span>
+<span class="keyword">def</span> <span class="function">fib_naive</span>(n):
+    <span class="keyword">if</span> n <= 1:
+        <span class="keyword">return</span> n
+    <span class="keyword">return</span> fib_naive(n-1) + fib_naive(n-2)
+
+<span class="comment"># Top-Down DP (Memoization) - O(n)</span>
+<span class="keyword">def</span> <span class="function">fib_memo</span>(n, memo={}):
+    <span class="keyword">if</span> n <span class="keyword">in</span> memo:
+        <span class="keyword">return</span> memo[n]
+    
+    <span class="keyword">if</span> n <= 1:
+        <span class="keyword">return</span> n
+    
+    memo[n] = fib_memo(n-1, memo) + fib_memo(n-2, memo)
+    <span class="keyword">return</span> memo[n]
+
+<span class="comment"># Bottom-Up DP (Tabulation) - O(n)</span>
+<span class="keyword">def</span> <span class="function">fib_dp</span>(n):
+    <span class="keyword">if</span> n <= 1:
+        <span class="keyword">return</span> n
+    
+    dp = [0] * (n + 1)
+    dp[1] = 1
+    
+    <span class="keyword">for</span> i <span class="keyword">in</span> range(2, n + 1):
+        dp[i] = dp[i-1] + dp[i-2]
+    
+    <span class="keyword">return</span> dp[n]
+
+<span class="comment"># Space Optimized - O(1)</span>
+<span class="keyword">def</span> <span class="function">fib_optimized</span>(n):
+    <span class="keyword">if</span> n <= 1:
+        <span class="keyword">return</span> n
+    
+    prev2, prev1 = 0, 1
+    <span class="keyword">for</span> i <span class="keyword">in</span> range(2, n + 1):
+        current = prev1 + prev2
+        prev2, prev1 = prev1, current
+    
+    <span class="keyword">return</span> prev1
+
+<span class="comment"># Test the implementations</span>
+n = 10
+print(<span class="string">f"fib_memo({n}) = {fib_memo(n)}"</span>)
+print(<span class="string">f"fib_dp({n}) = {fib_dp(n)}"</span>)
+print(<span class="string">f"fib_optimized({n}) = {fib_optimized(n)}"</span>)
+                        </div>
+
+                        <h3>Coin Change Problem</h3>
+                        <div class="code-block">
+<span class="comment"># Coin Change: Minimum coins needed to make amount</span>
+<span class="keyword">def</span> <span class="function">coin_change</span>(coins, amount):
+    <span class="comment"># Initialize DP array with infinity</span>
+    dp = [float(<span class="string">'inf'</span>)] * (amount + 1)
+    dp[0] = 0  <span class="comment"># Base case: 0 coins needed for amount 0</span>
+    
+    <span class="keyword">for</span> coin <span class="keyword">in</span> coins:
+        <span class="keyword">for</span> i <span class="keyword">in</span> range(coin, amount + 1):
+            <span class="keyword">if</span> dp[i - coin] != float(<span class="string">'inf'</span>):
+                dp[i] = min(dp[i], dp[i - coin] + 1)
+    
+    <span class="keyword">return</span> dp[amount] <span class="keyword">if</span> dp[amount] != float(<span class="string">'inf'</span>) <span class="keyword">else</span> -1
+
+<span class="comment"># Example usage</span>
+coins = [1, 3, 4]
+amount = 6
+result = coin_change(coins, amount)
+print(<span class="string">f"Minimum coins needed for {amount}: {result}"</span>)
+                        </div>
+
+                        <h3>Longest Common Subsequence</h3>
+                        <div class="code-block">
+<span class="comment"># LCS: Find length of longest common subsequence</span>
+<span class="keyword">def</span> <span class="function">lcs</span>(text1, text2):
+    m, n = len(text1), len(text2)
+    
+    <span class="comment"># Create DP table</span>
+    dp = [[0] * (n + 1) <span class="keyword">for</span> _ <span class="keyword">in</span> range(m + 1)]
+    
+    <span class="comment"># Fill the DP table</span>
+    <span class="keyword">for</span> i <span class="keyword">in</span> range(1, m + 1):
+        <span class="keyword">for</span> j <span class="keyword">in</span> range(1, n + 1):
+            <span class="keyword">if</span> text1[i-1] == text2[j-1]:
+                dp[i][j] = dp[i-1][j-1] + 1
+            <span class="keyword">else</span>:
+                dp[i][j] = max(dp[i-1][j], dp[i][j-1])
+    
+    <span class="keyword">return</span> dp[m][n]
+
+<span class="comment"># Function to reconstruct the actual LCS</span>
+<span class="keyword">def</span> <span class="function">lcs_string</span>(text1, text2):
+    m, n = len(text1), len(text2)
+    dp = [[0] * (n + 1) <span class="keyword">for</span> _ <span class="keyword">in</span> range(m + 1)]
+    
+    <span class="keyword">for</span> i <span class="keyword">in</span> range(1, m + 1):
+        <span class="keyword">for</span> j <span class="keyword">in</span> range(1, n + 1):
+            <span class="keyword">if</span> text1[i-1] == text2[j-1]:
+                dp[i][j] = dp[i-1][j-1] + 1
+            <span class="keyword">else</span>:
+                dp[i][j] = max(dp[i-1][j], dp[i][j-1])
+    
+    <span class="comment"># Reconstruct LCS</span>
+    lcs_str = <span class="string">""</span>
+    i, j = m, n
+    <span class="keyword">while</span> i > 0 <span class="keyword">and</span> j > 0:
+        <span class="keyword">if</span> text1[i-1] == text2[j-1]:
+            lcs_str = text1[i-1] + lcs_str
+            i -= 1
+            j -= 1
+        <span class="keyword">elif</span> dp[i-1][j] > dp[i][j-1]:
+            i -= 1
+        <span class="keyword">else</span>:
+            j -= 1
+    
+    <span class="keyword">return</span> lcs_str
+
+<span class="comment"># Example usage</span>
+text1 = <span class="string">"abcde"</span>
+text2 = <span class="string">"ace"</span>
+
+length = lcs(text1, text2)
+subsequence = lcs_string(text1, text2)
+
+print(<span class="string">f"LCS length: {length}"</span>)
+print(<span class="string">f"LCS string: '{subsequence}'"</span>)
+                        </div>
+
+                        <h3>0/1 Knapsack Problem</h3>
+                        <div class="code-block">
+<span class="comment"># 0/1 Knapsack: Maximum value with weight constraint</span>
+<span class="keyword">def</span> <span class="function">knapsack</span>(weights, values, capacity):
+    n = len(weights)
+    
+    <span class="comment"># Create DP table</span>
+    dp = [[0] * (capacity + 1) <span class="keyword">for</span> _ <span class="keyword">in</span> range(n + 1)]
+    
+    <span class="comment"># Fill the DP table</span>
+    <span class="keyword">for</span> i <span class="keyword">in</span> range(1, n + 1):
+        <span class="keyword">for</span> w <span class="keyword">in</span> range(1, capacity + 1):
+            <span class="comment"># If current item weight exceeds capacity</span>
+            <span class="keyword">if</span> weights[i-1] > w:
+                dp[i][w] = dp[i-1][w]
+            <span class="keyword">else</span>:
+                <span class="comment"># Max of including or excluding current item</span>
+                include = values[i-1] + dp[i-1][w - weights[i-1]]
+                exclude = dp[i-1][w]
+                dp[i][w] = max(include, exclude)
+    
+    <span class="keyword">return</span> dp[n][capacity]
+
+<span class="comment"># Space optimized version</span>
+<span class="keyword">def</span> <span class="function">knapsack_optimized</span>(weights, values, capacity):
+    n = len(weights)
+    dp = [0] * (capacity + 1)
+    
+    <span class="keyword">for</span> i <span class="keyword">in</span> range(n):
+        <span class="comment"># Traverse backwards to avoid overwriting</span>
+        <span class="keyword">for</span> w <span class="keyword">in</span> range(capacity, weights[i] - 1, -1):
+            dp[w] = max(dp[w], dp[w - weights[i]] + values[i])
+    
+    <span class="keyword">return</span> dp[capacity]
+
+<span class="comment"># Example usage</span>
+weights = [1, 3, 4, 5]
+values = [1, 4, 5, 7]
+capacity = 7
+
+max_value = knapsack(weights, values, capacity)
+max_value_opt = knapsack_optimized(weights, values, capacity)
+
+print(<span class="string">f"Maximum value: {max_value}"</span>)
+print(<span class="string">f"Maximum value (optimized): {max_value_opt}"</span>)
+                        </div>
+                    </div>
+                </section>
+            </article>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 MIT-NOTES. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

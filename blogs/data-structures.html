@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Structures - MIT-NOTES</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="blog-header">
+        <div class="container">
+            <a href="../index.html" class="back-button">
+                <i class="fas fa-arrow-left"></i>
+                Back to Home
+            </a>
+            <h1 class="blog-title">Data Structures</h1>
+            <p class="blog-subtitle">Fundamental data structures and their implementations</p>
+        </div>
+    </header>
+
+    <main class="main">
+        <div class="container">
+            <article class="blog-content">
+                <!-- Title Section -->
+                <section class="blog-section">
+                    <h2 class="section-title">
+                        <i class="fas fa-heading"></i>
+                        Title
+                    </h2>
+                    <div class="section-content">
+                        <h3>Fundamental Data Structures: Arrays, Linked Lists, Stacks, and Queues</h3>
+                        <p>Data structures are the foundation of efficient algorithm design and implementation. They provide organized ways to store and access data, enabling optimal performance for different operations. This comprehensive guide covers the most fundamental data structures that every programmer should master.</p>
+                        <p>Understanding these basic structures is essential for building more complex systems and solving computational problems effectively.</p>
+                    </div>
+                </section>
+
+                <!-- Algorithm Section -->
+                <section class="blog-section">
+                    <h2 class="section-title">
+                        <i class="fas fa-cogs"></i>
+                        Algorithm
+                    </h2>
+                    <div class="section-content">
+                        <h3>Arrays</h3>
+                        <p>Arrays are contiguous memory locations that store elements of the same data type.</p>
+                        <ul>
+                            <li><strong>Access:</strong> O(1) - Direct indexing</li>
+                            <li><strong>Search:</strong> O(n) - Linear search, O(log n) if sorted</li>
+                            <li><strong>Insertion:</strong> O(n) - May require shifting elements</li>
+                            <li><strong>Deletion:</strong> O(n) - May require shifting elements</li>
+                            <li><strong>Space Complexity:</strong> O(n)</li>
+                        </ul>
+
+                        <h3>Linked Lists</h3>
+                        <p>Linked lists consist of nodes where each node contains data and a pointer to the next node.</p>
+                        <ul>
+                            <li><strong>Access:</strong> O(n) - Must traverse from head</li>
+                            <li><strong>Search:</strong> O(n) - Linear traversal required</li>
+                            <li><strong>Insertion:</strong> O(1) if position known, O(n) otherwise</li>
+                            <li><strong>Deletion:</strong> O(1) if position known, O(n) otherwise</li>
+                            <li><strong>Space Complexity:</strong> O(n) + pointer overhead</li>
+                        </ul>
+
+                        <h3>Stacks</h3>
+                        <p>Stacks follow LIFO (Last In, First Out) principle with operations at one end.</p>
+                        <ul>
+                            <li><strong>Push:</strong> O(1) - Add element to top</li>
+                            <li><strong>Pop:</strong> O(1) - Remove element from top</li>
+                            <li><strong>Peek/Top:</strong> O(1) - View top element</li>
+                            <li><strong>Applications:</strong> Function calls, expression evaluation, undo operations</li>
+                        </ul>
+
+                        <h3>Queues</h3>
+                        <p>Queues follow FIFO (First In, First Out) principle with insertion at rear and deletion at front.</p>
+                        <ul>
+                            <li><strong>Enqueue:</strong> O(1) - Add element to rear</li>
+                            <li><strong>Dequeue:</strong> O(1) - Remove element from front</li>
+                            <li><strong>Front:</strong> O(1) - View front element</li>
+                            <li><strong>Applications:</strong> Process scheduling, breadth-first search, handling requests</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <!-- Flowchart Section -->
+                <section class="blog-section">
+                    <h2 class="section-title">
+                        <i class="fas fa-project-diagram"></i>
+                        Flowchart
+                    </h2>
+                    <div class="section-content">
+                        <h3>Linked List Insertion Flowchart</h3>
+                        <div class="flowchart">
+                            <div class="flowchart-box">Start</div>
+                            <div class="flowchart-arrow">↓</div>
+                            <div class="flowchart-box">Create New Node</div>
+                            <div class="flowchart-arrow">↓</div>
+                            <div class="flowchart-box">Insert at Beginning?</div>
+                            <div class="flowchart-arrow">↓ Yes</div>
+                            <div class="flowchart-box">Point new node to head</div>
+                            <div class="flowchart-arrow">↓</div>
+                            <div class="flowchart-box">Update head to new node</div>
+                            <br>
+                            <div class="flowchart-box">Insert at End?</div>
+                            <div class="flowchart-arrow">↓ Yes</div>
+                            <div class="flowchart-box">Traverse to last node</div>
+                            <div class="flowchart-arrow">↓</div>
+                            <div class="flowchart-box">Point last node to new node</div>
+                            <br>
+                            <div class="flowchart-box">Insert at Position?</div>
+                            <div class="flowchart-arrow">↓ Yes</div>
+                            <div class="flowchart-box">Traverse to position-1</div>
+                            <div class="flowchart-arrow">↓</div>
+                            <div class="flowchart-box">Update pointers</div>
+                            <div class="flowchart-arrow">↓</div>
+                            <div class="flowchart-box">End</div>
+                        </div>
+
+                        <h3>Stack Operations Flowchart</h3>
+                        <div class="flowchart">
+                            <div class="flowchart-box">Stack Operation</div>
+                            <div class="flowchart-arrow">↓</div>
+                            <div class="flowchart-box">Push?</div>
+                            <div class="flowchart-arrow">↓ Yes</div>
+                            <div class="flowchart-box">Stack Full?</div>
+                            <div class="flowchart-arrow">↓ No</div>
+                            <div class="flowchart-box">Add element to top</div>
+                            <div class="flowchart-arrow">↓</div>
+                            <div class="flowchart-box">Increment top pointer</div>
+                            <br>
+                            <div class="flowchart-box">Pop?</div>
+                            <div class="flowchart-arrow">↓ Yes</div>
+                            <div class="flowchart-box">Stack Empty?</div>
+                            <div class="flowchart-arrow">↓ No</div>
+                            <div class="flowchart-box">Return top element</div>
+                            <div class="flowchart-arrow">↓</div>
+                            <div class="flowchart-box">Decrement top pointer</div>
+                            <div class="flowchart-arrow">↓</div>
+                            <div class="flowchart-box">End</div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Program Section -->
+                <section class="blog-section">
+                    <h2 class="section-title">
+                        <i class="fas fa-code"></i>
+                        Program (Code)
+                    </h2>
+                    <div class="section-content">
+                        <h3>Dynamic Array Implementation</h3>
+                        <div class="code-block">
+<span class="keyword">class</span> <span class="function">DynamicArray</span>:
+    <span class="keyword">def</span> <span class="function">__init__</span>(self):
+        self.capacity = 2
+        self.size = 0
+        self.data = [<span class="keyword">None</span>] * self.capacity
+    
+    <span class="keyword">def</span> <span class="function">__len__</span>(self):
+        <span class="keyword">return</span> self.size
+    
+    <span class="keyword">def</span> <span class="function">__getitem__</span>(self, index):
+        <span class="keyword">if</span> 0 <= index < self.size:
+            <span class="keyword">return</span> self.data[index]
+        <span class="keyword">raise</span> IndexError(<span class="string">"Index out of range"</span>)
+    
+    <span class="keyword">def</span> <span class="function">__setitem__</span>(self, index, value):
+        <span class="keyword">if</span> 0 <= index < self.size:
+            self.data[index] = value
+        <span class="keyword">else</span>:
+            <span class="keyword">raise</span> IndexError(<span class="string">"Index out of range"</span>)
+    
+    <span class="keyword">def</span> <span class="function">_resize</span>(self):
+        <span class="comment"># Double the capacity when full</span>
+        old_data = self.data
+        self.capacity *= 2
+        self.data = [<span class="keyword">None</span>] * self.capacity
+        
+        <span class="keyword">for</span> i <span class="keyword">in</span> range(self.size):
+            self.data[i] = old_data[i]
+    
+    <span class="keyword">def</span> <span class="function">append</span>(self, value):
+        <span class="keyword">if</span> self.size == self.capacity:
+            self._resize()
+        
+        self.data[self.size] = value
+        self.size += 1
+    
+    <span class="keyword">def</span> <span class="function">insert</span>(self, index, value):
+        <span class="keyword">if</span> index < 0 <span class="keyword">or</span> index > self.size:
+            <span class="keyword">raise</span> IndexError(<span class="string">"Index out of range"</span>)
+        
+        <span class="keyword">if</span> self.size == self.capacity:
+            self._resize()
+        
+        <span class="comment"># Shift elements to the right</span>
+        <span class="keyword">for</span> i <span class="keyword">in</span> range(self.size, index, -1):
+            self.data[i] = self.data[i - 1]
+        
+        self.data[index] = value
+        self.size += 1
+    
+    <span class="keyword">def</span> <span class="function">remove</span>(self, index):
+        <span class="keyword">if</span> index < 0 <span class="keyword">or</span> index >= self.size:
+            <span class="keyword">raise</span> IndexError(<span class="string">"Index out of range"</span>)
+        
+        <span class="comment"># Shift elements to the left</span>
+        <span class="keyword">for</span> i <span class="keyword">in</span> range(index, self.size - 1):
+            self.data[i] = self.data[i + 1]
+        
+        self.size -= 1
+
+<span class="comment"># Example usage</span>
+arr = DynamicArray()
+arr.append(1)
+arr.append(2)
+arr.append(3)
+print(<span class="string">f"Array length: {len(arr)}"</span>)
+print(<span class="string">f"Element at index 1: {arr[1]}"</span>)
+                        </div>
+
+                        <h3>Singly Linked List Implementation</h3>
+                        <div class="code-block">
+<span class="keyword">class</span> <span class="function">Node</span>:
+    <span class="keyword">def</span> <span class="function">__init__</span>(self, data):
+        self.data = data
+        self.next = <span class="keyword">None</span>
+
+<span class="keyword">class</span> <span class="function">LinkedList</span>:
+    <span class="keyword">def</span> <span class="function">__init__</span>(self):
+        self.head = <span class="keyword">None</span>
+        self.size = 0
+    
+    <span class="keyword">def</span> <span class="function">__len__</span>(self):
+        <span class="keyword">return</span> self.size
+    
+    <span class="keyword">def</span> <span class="function">is_empty</span>(self):
+        <span class="keyword">return</span> self.head <span class="keyword">is</span> <span class="keyword">None</span>
+    
+    <span class="keyword">def</span> <span class="function">prepend</span>(self, data):
+        <span class="comment"># Insert at beginning - O(1)</span>
+        new_node = Node(data)
+        new_node.next = self.head
+        self.head = new_node
+        self.size += 1
+    
+    <span class="keyword">def</span> <span class="function">append</span>(self, data):
+        <span class="comment"># Insert at end - O(n)</span>
+        new_node = Node(data)
+        
+        <span class="keyword">if</span> self.is_empty():
+            self.head = new_node
+        <span class="keyword">else</span>:
+            current = self.head
+            <span class="keyword">while</span> current.next:
+                current = current.next
+            current.next = new_node
+        
+        self.size += 1
+    
+    <span class="keyword">def</span> <span class="function">insert</span>(self, index, data):
+        <span class="keyword">if</span> index < 0 <span class="keyword">or</span> index > self.size:
+            <span class="keyword">raise</span> IndexError(<span class="string">"Index out of range"</span>)
+        
+        <span class="keyword">if</span> index == 0:
+            self.prepend(data)
+            <span class="keyword">return</span>
+        
+        new_node = Node(data)
+        current = self.head
+        
+        <span class="keyword">for</span> _ <span class="keyword">in</span> range(index - 1):
+            current = current.next
+        
+        new_node.next = current.next
+        current.next = new_node
+        self.size += 1
+    
+    <span class="keyword">def</span> <span class="function">delete</span>(self, index):
+        <span class="keyword">if</span> index < 0 <span class="keyword">or</span> index >= self.size:
+            <span class="keyword">raise</span> IndexError(<span class="string">"Index out of range"</span>)
+        
+        <span class="keyword">if</span> index == 0:
+            self.head = self.head.next
+            self.size -= 1
+            <span class="keyword">return</span>
+        
+        current = self.head
+        <span class="keyword">for</span> _ <span class="keyword">in</span> range(index - 1):
+            current = current.next
+        
+        current.next = current.next.next
+        self.size -= 1
+    
+    <span class="keyword">def</span> <span class="function">find</span>(self, data):
+        current = self.head
+        index = 0
+        
+        <span class="keyword">while</span> current:
+            <span class="keyword">if</span> current.data == data:
+                <span class="keyword">return</span> index
+            current = current.next
+            index += 1
+        
+        <span class="keyword">return</span> -1
+    
+    <span class="keyword">def</span> <span class="function">display</span>(self):
+        elements = []
+        current = self.head
+        
+        <span class="keyword">while</span> current:
+            elements.append(current.data)
+            current = current.next
+        
+        <span class="keyword">return</span> elements
+
+<span class="comment"># Example usage</span>
+ll = LinkedList()
+ll.append(1)
+ll.append(2)
+ll.prepend(0)
+ll.insert(2, 1.5)
+print(<span class="string">f"Linked List: {ll.display()}"</span>)
+print(<span class="string">f"Size: {len(ll)}"</span>)
+print(<span class="string">f"Find 1.5: {ll.find(1.5)}"</span>)
+                        </div>
+
+                        <h3>Stack Implementation</h3>
+                        <div class="code-block">
+<span class="keyword">class</span> <span class="function">Stack</span>:
+    <span class="keyword">def</span> <span class="function">__init__</span>(self, capacity=<span class="keyword">None</span>):
+        self.items = []
+        self.capacity = capacity
+    
+    <span class="keyword">def</span> <span class="function">is_empty</span>(self):
+        <span class="keyword">return</span> len(self.items) == 0
+    
+    <span class="keyword">def</span> <span class="function">is_full</span>(self):
+        <span class="keyword">if</span> self.capacity <span class="keyword">is</span> <span class="keyword">None</span>:
+            <span class="keyword">return</span> False
+        <span class="keyword">return</span> len(self.items) == self.capacity
+    
+    <span class="keyword">def</span> <span class="function">push</span>(self, item):
+        <span class="keyword">if</span> self.is_full():
+            <span class="keyword">raise</span> OverflowError(<span class="string">"Stack overflow"</span>)
+        self.items.append(item)
+    
+    <span class="keyword">def</span> <span class="function">pop</span>(self):
+        <span class="keyword">if</span> self.is_empty():
+            <span class="keyword">raise</span> IndexError(<span class="string">"Stack underflow"</span>)
+        <span class="keyword">return</span> self.items.pop()
+    
+    <span class="keyword">def</span> <span class="function">peek</span>(self):
+        <span class="keyword">if</span> self.is_empty():
+            <span class="keyword">raise</span> IndexError(<span class="string">"Stack is empty"</span>)
+        <span class="keyword">return</span> self.items[-1]
+    
+    <span class="keyword">def</span> <span class="function">size</span>(self):
+        <span class="keyword">return</span> len(self.items)
+
+<span class="comment"># Stack applications</span>
+<span class="keyword">def</span> <span class="function">is_balanced_parentheses</span>(expression):
+    <span class="comment"># Check if parentheses are balanced</span>
+    stack = Stack()
+    pairs = {<span class="string">')'</span>: <span class="string">'('</span>, <span class="string">']'</span>: <span class="string">'['</span>, <span class="string">'}'</span>: <span class="string">'{'</span>}
+    
+    <span class="keyword">for</span> char <span class="keyword">in</span> expression:
+        <span class="keyword">if</span> char <span class="keyword">in</span> <span class="string">'([{'</span>:
+            stack.push(char)
+        <span class="keyword">elif</span> char <span class="keyword">in</span> <span class="string">')]}'</span>:
+            <span class="keyword">if</span> stack.is_empty() <span class="keyword">or</span> stack.pop() != pairs[char]:
+                <span class="keyword">return</span> False
+    
+    <span class="keyword">return</span> stack.is_empty()
+
+<span class="keyword">def</span> <span class="function">infix_to_postfix</span>(expression):
+    <span class="comment"># Convert infix to postfix notation</span>
+    stack = Stack()
+    result = []
+    precedence = {<span class="string">'+'</span>: 1, <span class="string">'-'</span>: 1, <span class="string">'*'</span>: 2, <span class="string">'/'</span>: 2, <span class="string">'^'</span>: 3}
+    
+    <span class="keyword">for</span> char <span class="keyword">in</span> expression:
+        <span class="keyword">if</span> char.isalnum():
+            result.append(char)
+        <span class="keyword">elif</span> char == <span class="string">'('</span>:
+            stack.push(char)
+        <span class="keyword">elif</span> char == <span class="string">')'</span>:
+            <span class="keyword">while</span> <span class="keyword">not</span> stack.is_empty() <span class="keyword">and</span> stack.peek() != <span class="string">'('</span>:
+                result.append(stack.pop())
+            stack.pop()  <span class="comment"># Remove '('</span>
+        <span class="keyword">elif</span> char <span class="keyword">in</span> precedence:
+            <span class="keyword">while</span> (<span class="keyword">not</span> stack.is_empty() <span class="keyword">and</span>
+                   stack.peek() != <span class="string">'('</span> <span class="keyword">and</span>
+                   precedence.get(stack.peek(), 0) >= precedence[char]):
+                result.append(stack.pop())
+            stack.push(char)
+    
+    <span class="keyword">while</span> <span class="keyword">not</span> stack.is_empty():
+        result.append(stack.pop())
+    
+    <span class="keyword">return</span> <span class="string">''</span>.join(result)
+
+<span class="comment"># Example usage</span>
+stack = Stack()
+stack.push(1)
+stack.push(2)
+stack.push(3)
+print(<span class="string">f"Top element: {stack.peek()}"</span>)
+print(<span class="string">f"Popped: {stack.pop()}"</span>)
+print(<span class="string">f"Stack size: {stack.size()}"</span>)
+
+print(<span class="string">f"Balanced: {is_balanced_parentheses('((()))')}"</span>)
+print(<span class="string">f"Postfix: {infix_to_postfix('a+b*c')}"</span>)
+                        </div>
+
+                        <h3>Queue Implementation</h3>
+                        <div class="code-block">
+<span class="keyword">from</span> collections <span class="keyword">import</span> deque
+
+<span class="keyword">class</span> <span class="function">Queue</span>:
+    <span class="keyword">def</span> <span class="function">__init__</span>(self, capacity=<span class="keyword">None</span>):
+        self.items = deque()
+        self.capacity = capacity
+    
+    <span class="keyword">def</span> <span class="function">is_empty</span>(self):
+        <span class="keyword">return</span> len(self.items) == 0
+    
+    <span class="keyword">def</span> <span class="function">is_full</span>(self):
+        <span class="keyword">if</span> self.capacity <span class="keyword">is</span> <span class="keyword">None</span>:
+            <span class="keyword">return</span> False
+        <span class="keyword">return</span> len(self.items) == self.capacity
+    
+    <span class="keyword">def</span> <span class="function">enqueue</span>(self, item):
+        <span class="keyword">if</span> self.is_full():
+            <span class="keyword">raise</span> OverflowError(<span class="string">"Queue overflow"</span>)
+        self.items.append(item)
+    
+    <span class="keyword">def</span> <span class="function">dequeue</span>(self):
+        <span class="keyword">if</span> self.is_empty():
+            <span class="keyword">raise</span> IndexError(<span class="string">"Queue underflow"</span>)
+        <span class="keyword">return</span> self.items.popleft()
+    
+    <span class="keyword">def</span> <span class="function">front</span>(self):
+        <span class="keyword">if</span> self.is_empty():
+            <span class="keyword">raise</span> IndexError(<span class="string">"Queue is empty"</span>)
+        <span class="keyword">return</span> self.items[0]
+    
+    <span class="keyword">def</span> <span class="function">size</span>(self):
+        <span class="keyword">return</span> len(self.items)
+
+<span class="comment"># Circular Queue Implementation</span>
+<span class="keyword">class</span> <span class="function">CircularQueue</span>:
+    <span class="keyword">def</span> <span class="function">__init__</span>(self, capacity):
+        self.capacity = capacity
+        self.queue = [<span class="keyword">None</span>] * capacity
+        self.head = 0
+        self.tail = -1
+        self.size = 0
+    
+    <span class="keyword">def</span> <span class="function">is_empty</span>(self):
+        <span class="keyword">return</span> self.size == 0
+    
+    <span class="keyword">def</span> <span class="function">is_full</span>(self):
+        <span class="keyword">return</span> self.size == self.capacity
+    
+    <span class="keyword">def</span> <span class="function">enqueue</span>(self, item):
+        <span class="keyword">if</span> self.is_full():
+            <span class="keyword">raise</span> OverflowError(<span class="string">"Queue is full"</span>)
+        
+        self.tail = (self.tail + 1) % self.capacity
+        self.queue[self.tail] = item
+        self.size += 1
+    
+    <span class="keyword">def</span> <span class="function">dequeue</span>(self):
+        <span class="keyword">if</span> self.is_empty():
+            <span class="keyword">raise</span> IndexError(<span class="string">"Queue is empty"</span>)
+        
+        item = self.queue[self.head]
+        self.queue[self.head] = <span class="keyword">None</span>
+        self.head = (self.head + 1) % self.capacity
+        self.size -= 1
+        <span class="keyword">return</span> item
+    
+    <span class="keyword">def</span> <span class="function">front</span>(self):
+        <span class="keyword">if</span> self.is_empty():
+            <span class="keyword">raise</span> IndexError(<span class="string">"Queue is empty"</span>)
+        <span class="keyword">return</span> self.queue[self.head]
+
+<span class="comment"># Priority Queue using heapq</span>
+<span class="keyword">import</span> heapq
+
+<span class="keyword">class</span> <span class="function">PriorityQueue</span>:
+    <span class="keyword">def</span> <span class="function">__init__</span>(self):
+        self.heap = []
+        self.counter = 0
+    
+    <span class="keyword">def</span> <span class="function">enqueue</span>(self, item, priority):
+        <span class="comment"># Use counter to break ties (FIFO for same priority)</span>
+        heapq.heappush(self.heap, (priority, self.counter, item))
+        self.counter += 1
+    
+    <span class="keyword">def</span> <span class="function">dequeue</span>(self):
+        <span class="keyword">if</span> self.is_empty():
+            <span class="keyword">raise</span> IndexError(<span class="string">"Priority queue is empty"</span>)
+        <span class="keyword">return</span> heapq.heappop(self.heap)[2]
+    
+    <span class="keyword">def</span> <span class="function">is_empty</span>(self):
+        <span class="keyword">return</span> len(self.heap) == 0
+    
+    <span class="keyword">def</span> <span class="function">size</span>(self):
+        <span class="keyword">return</span> len(self.heap)
+
+<span class="comment"># Example usage</span>
+queue = Queue()
+queue.enqueue(<span class="string">"First"</span>)
+queue.enqueue(<span class="string">"Second"</span>)
+queue.enqueue(<span class="string">"Third"</span>)
+
+print(<span class="string">f"Front: {queue.front()}"</span>)
+print(<span class="string">f"Dequeued: {queue.dequeue()}"</span>)
+print(<span class="string">f"Queue size: {queue.size()}"</span>)
+
+<span class="comment"># Priority queue example</span>
+pq = PriorityQueue()
+pq.enqueue(<span class="string">"Task 1"</span>, 3)
+pq.enqueue(<span class="string">"Task 2"</span>, 1)
+pq.enqueue(<span class="string">"Task 3"</span>, 2)
+
+print(<span class="string">f"Highest priority: {pq.dequeue()}"</span>)
+                        </div>
+                    </div>
+                </section>
+            </article>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 MIT-NOTES. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

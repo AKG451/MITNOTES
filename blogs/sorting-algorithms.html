@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sorting Algorithms - MIT-NOTES</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="blog-header">
+        <div class="container">
+            <a href="../index.html" class="back-button">
+                <i class="fas fa-arrow-left"></i>
+                Back to Home
+            </a>
+            <h1 class="blog-title">Sorting Algorithms</h1>
+            <p class="blog-subtitle">Comprehensive guide to sorting algorithms and their implementations</p>
+        </div>
+    </header>
+
+    <main class="main">
+        <div class="container">
+            <article class="blog-content">
+                <!-- Title Section -->
+                <section class="blog-section">
+                    <h2 class="section-title">
+                        <i class="fas fa-heading"></i>
+                        Title
+                    </h2>
+                    <div class="section-content">
+                        <h3>Sorting Algorithms: QuickSort, MergeSort, and HeapSort</h3>
+                        <p>Sorting algorithms are fundamental to computer science and are used to arrange elements in a specific order. This comprehensive guide covers three of the most efficient and widely-used sorting algorithms: QuickSort, MergeSort, and HeapSort.</p>
+                        <p>Each algorithm has its own advantages and trade-offs in terms of time complexity, space complexity, and practical performance characteristics.</p>
+                    </div>
+                </section>
+
+                <!-- Algorithm Section -->
+                <section class="blog-section">
+                    <h2 class="section-title">
+                        <i class="fas fa-cogs"></i>
+                        Algorithm
+                    </h2>
+                    <div class="section-content">
+                        <h3>QuickSort Algorithm</h3>
+                        <p>QuickSort is a divide-and-conquer algorithm that works by selecting a 'pivot' element and partitioning the array around it.</p>
+                        <ul>
+                            <li>Choose a pivot element from the array</li>
+                            <li>Partition the array so elements smaller than pivot are on the left, larger on the right</li>
+                            <li>Recursively apply QuickSort to the sub-arrays</li>
+                            <li>Time Complexity: Average O(n log n), Worst O(n²)</li>
+                            <li>Space Complexity: O(log n)</li>
+                        </ul>
+
+                        <h3>MergeSort Algorithm</h3>
+                        <p>MergeSort is a stable divide-and-conquer algorithm that guarantees O(n log n) time complexity.</p>
+                        <ul>
+                            <li>Divide the array into two halves</li>
+                            <li>Recursively sort both halves</li>
+                            <li>Merge the sorted halves back together</li>
+                            <li>Time Complexity: O(n log n) in all cases</li>
+                            <li>Space Complexity: O(n)</li>
+                        </ul>
+
+                        <h3>HeapSort Algorithm</h3>
+                        <p>HeapSort uses a binary heap data structure to sort elements efficiently.</p>
+                        <ul>
+                            <li>Build a max heap from the input array</li>
+                            <li>Repeatedly extract the maximum element</li>
+                            <li>Place it at the end of the sorted portion</li>
+                            <li>Time Complexity: O(n log n)</li>
+                            <li>Space Complexity: O(1)</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <!-- Flowchart Section -->
+                <section class="blog-section">
+                    <h2 class="section-title">
+                        <i class="fas fa-project-diagram"></i>
+                        Flowchart
+                    </h2>
+                    <div class="section-content">
+                        <h3>QuickSort Flowchart</h3>
+                        <div class="flowchart">
+                            <div class="flowchart-box">Start</div>
+                            <div class="flowchart-arrow">↓</div>
+                            <div class="flowchart-box">Choose Pivot</div>
+                            <div class="flowchart-arrow">↓</div>
+                            <div class="flowchart-box">Partition Array</div>
+                            <div class="flowchart-arrow">↓</div>
+                            <div class="flowchart-box">Recursively Sort Left</div>
+                            <div class="flowchart-arrow">↓</div>
+                            <div class="flowchart-box">Recursively Sort Right</div>
+                            <div class="flowchart-arrow">↓</div>
+                            <div class="flowchart-box">Combine Results</div>
+                            <div class="flowchart-arrow">↓</div>
+                            <div class="flowchart-box">End</div>
+                        </div>
+
+                        <h3>MergeSort Flowchart</h3>
+                        <div class="flowchart">
+                            <div class="flowchart-box">Start</div>
+                            <div class="flowchart-arrow">↓</div>
+                            <div class="flowchart-box">Divide Array</div>
+                            <div class="flowchart-arrow">↓</div>
+                            <div class="flowchart-box">Sort Left Half</div>
+                            <div class="flowchart-arrow">↓</div>
+                            <div class="flowchart-box">Sort Right Half</div>
+                            <div class="flowchart-arrow">↓</div>
+                            <div class="flowchart-box">Merge Halves</div>
+                            <div class="flowchart-arrow">↓</div>
+                            <div class="flowchart-box">End</div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Program Section -->
+                <section class="blog-section">
+                    <h2 class="section-title">
+                        <i class="fas fa-code"></i>
+                        Program (Code)
+                    </h2>
+                    <div class="section-content">
+                        <h3>QuickSort Implementation</h3>
+                        <div class="code-block">
+<span class="keyword">def</span> <span class="function">quicksort</span>(arr, low, high):
+    <span class="comment"># Base case: if low >= high, array is sorted</span>
+    <span class="keyword">if</span> low < high:
+        <span class="comment"># Partition the array and get pivot index</span>
+        pi = partition(arr, low, high)
+        
+        <span class="comment"># Recursively sort elements before and after partition</span>
+        quicksort(arr, low, pi - 1)
+        quicksort(arr, pi + 1, high)
+
+<span class="keyword">def</span> <span class="function">partition</span>(arr, low, high):
+    <span class="comment"># Choose the rightmost element as pivot</span>
+    pivot = arr[high]
+    
+    <span class="comment"># Index of smaller element</span>
+    i = low - 1
+    
+    <span class="keyword">for</span> j <span class="keyword">in</span> range(low, high):
+        <span class="keyword">if</span> arr[j] <= pivot:
+            i += 1
+            arr[i], arr[j] = arr[j], arr[i]
+    
+    <span class="comment"># Place pivot in correct position</span>
+    arr[i + 1], arr[high] = arr[high], arr[i + 1]
+    <span class="keyword">return</span> i + 1
+
+<span class="comment"># Example usage</span>
+arr = [64, 34, 25, 12, 22, 11, 90]
+quicksort(arr, 0, len(arr) - 1)
+print(<span class="string">"Sorted array:"</span>, arr)
+                        </div>
+
+                        <h3>MergeSort Implementation</h3>
+                        <div class="code-block">
+<span class="keyword">def</span> <span class="function">mergesort</span>(arr):
+    <span class="keyword">if</span> len(arr) > 1:
+        <span class="comment"># Find the middle point</span>
+        mid = len(arr) // 2
+        
+        <span class="comment"># Divide the array into two halves</span>
+        left_half = arr[:mid]
+        right_half = arr[mid:]
+        
+        <span class="comment"># Recursively sort both halves</span>
+        mergesort(left_half)
+        mergesort(right_half)
+        
+        <span class="comment"># Merge the sorted halves</span>
+        i = j = k = 0
+        
+        <span class="keyword">while</span> i < len(left_half) <span class="keyword">and</span> j < len(right_half):
+            <span class="keyword">if</span> left_half[i] < right_half[j]:
+                arr[k] = left_half[i]
+                i += 1
+            <span class="keyword">else</span>:
+                arr[k] = right_half[j]
+                j += 1
+            k += 1
+        
+        <span class="comment"># Copy remaining elements</span>
+        <span class="keyword">while</span> i < len(left_half):
+            arr[k] = left_half[i]
+            i += 1
+            k += 1
+        
+        <span class="keyword">while</span> j < len(right_half):
+            arr[k] = right_half[j]
+            j += 1
+            k += 1
+
+<span class="comment"># Example usage</span>
+arr = [64, 34, 25, 12, 22, 11, 90]
+mergesort(arr)
+print(<span class="string">"Sorted array:"</span>, arr)
+                        </div>
+
+                        <h3>HeapSort Implementation</h3>
+                        <div class="code-block">
+<span class="keyword">def</span> <span class="function">heapify</span>(arr, n, i):
+    <span class="comment"># Find largest among root and children</span>
+    largest = i
+    left = 2 * i + 1
+    right = 2 * i + 2
+    
+    <span class="keyword">if</span> left < n <span class="keyword">and</span> arr[left] > arr[largest]:
+        largest = left
+    
+    <span class="keyword">if</span> right < n <span class="keyword">and</span> arr[right] > arr[largest]:
+        largest = right
+    
+    <span class="comment"># If root is not largest, swap and continue heapifying</span>
+    <span class="keyword">if</span> largest != i:
+        arr[i], arr[largest] = arr[largest], arr[i]
+        heapify(arr, n, largest)
+
+<span class="keyword">def</span> <span class="function">heapsort</span>(arr):
+    n = len(arr)
+    
+    <span class="comment"># Build max heap</span>
+    <span class="keyword">for</span> i <span class="keyword">in</span> range(n // 2 - 1, -1, -1):
+        heapify(arr, n, i)
+    
+    <span class="comment"># Extract elements one by one</span>
+    <span class="keyword">for</span> i <span class="keyword">in</span> range(n - 1, 0, -1):
+        <span class="comment"># Move current root to end</span>
+        arr[0], arr[i] = arr[i], arr[0]
+        
+        <span class="comment"># Call heapify on reduced heap</span>
+        heapify(arr, i, 0)
+
+<span class="comment"># Example usage</span>
+arr = [64, 34, 25, 12, 22, 11, 90]
+heapsort(arr)
+print(<span class="string">"Sorted array:"</span>, arr)
+                        </div>
+                    </div>
+                </section>
+            </article>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 MIT-NOTES. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

@@ -47,7 +47,7 @@ const cards = document.querySelectorAll('.card');
         
         isAnimating = true;
         currentIndex = (currentIndex + 1) % cards.length;
-        updateCardPositions();
+    updateCardPositions();
         
         setTimeout(() => {
             isAnimating = false;
@@ -59,7 +59,7 @@ const cards = document.querySelectorAll('.card');
         
         isAnimating = true;
         currentIndex = (currentIndex - 1 + cards.length) % cards.length;
-        updateCardPositions();
+    updateCardPositions();
         
         setTimeout(() => {
             isAnimating = false;
