@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MIT-NOTES - Technical Blog</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <h1 class="logo">
+                <i class="fas fa-code"></i>
+                MIT-NOTES
+            </h1>
+            <p class="tagline">Technical Notes & Algorithms</p>
+        </div>
+    </header>
+
+    <main class="main">
+        <div class="container">
+            <section class="search-section">
+                <div class="search-container">
+                    <i class="fas fa-search search-icon"></i>
+                    <input type="text" id="searchInput" class="search-input" placeholder="Search blog posts...">
+                </div>
+            </section>
+
+            <section class="blog-grid">
+                <div class="card" data-title="Sorting Algorithms" data-tags="algorithms sorting quicksort mergesort">
+                    <div class="card-content">
+                        <div class="card-icon">
+                            <i class="fas fa-sort-amount-down"></i>
+                        </div>
+                        <div class="card-overlay">
+                            <h3 class="card-title">Sorting Algorithms</h3>
+                            <p class="card-description">Comprehensive guide to sorting algorithms including QuickSort, MergeSort, and HeapSort</p>
+                        </div>
+                    </div>
+                    <a href="blogs/sorting-algorithms.html" class="card-link"></a>
+                </div>
+
+                <div class="card" data-title="Binary Search" data-tags="algorithms search binary tree">
+                    <div class="card-content">
+                        <div class="card-icon">
+                            <i class="fas fa-search"></i>
+                        </div>
+                        <div class="card-overlay">
+                            <h3 class="card-title">Binary Search</h3>
+                            <p class="card-description">Understanding binary search algorithm and its applications in problem solving</p>
+                        </div>
+                    </div>
+                    <a href="blogs/binary-search.html" class="card-link"></a>
+                </div>
+
+                <div class="card" data-title="Dynamic Programming" data-tags="algorithms dp optimization fibonacci">
+                    <div class="card-content">
+                        <div class="card-icon">
+                            <i class="fas fa-project-diagram"></i>
+                        </div>
+                        <div class="card-overlay">
+                            <h3 class="card-title">Dynamic Programming</h3>
+                            <p class="card-description">Master dynamic programming techniques with practical examples and optimization strategies</p>
+                        </div>
+                    </div>
+                    <a href="blogs/dynamic-programming.html" class="card-link"></a>
+                </div>
+
+                <div class="card" data-title="Graph Algorithms" data-tags="algorithms graph bfs dfs dijkstra">
+                    <div class="card-content">
+                        <div class="card-icon">
+                            <i class="fas fa-share-alt"></i>
+                        </div>
+                        <div class="card-overlay">
+                            <h3 class="card-title">Graph Algorithms</h3>
+                            <p class="card-description">Explore graph traversal algorithms including BFS, DFS, and shortest path algorithms</p>
+                        </div>
+                    </div>
+                    <a href="blogs/graph-algorithms.html" class="card-link"></a>
+                </div>
+
+                <div class="card" data-title="Data Structures" data-tags="datastructures array linkedlist stack queue">
+                    <div class="card-content">
+                        <div class="card-icon">
+                            <i class="fas fa-database"></i>
+                        </div>
+                        <div class="card-overlay">
+                            <h3 class="card-title">Data Structures</h3>
+                            <p class="card-description">Fundamental data structures: arrays, linked lists, stacks, queues, and their implementations</p>
+                        </div>
+                    </div>
+                    <a href="blogs/data-structures.html" class="card-link"></a>
+                </div>
+            </section>
+
+            <div id="noResults" class="no-results" style="display: none;">
+                <i class="fas fa-search"></i>
+                <h3>No results found</h3>
+                <p>Try adjusting your search terms</p>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 MIT-NOTES. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

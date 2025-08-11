@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Binary Search - MIT-NOTES</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="blog-header">
+        <div class="container">
+            <a href="../index.html" class="back-button">
+                <i class="fas fa-arrow-left"></i>
+                Back to Home
+            </a>
+            <h1 class="blog-title">Binary Search</h1>
+            <p class="blog-subtitle">Understanding binary search algorithm and its applications</p>
+        </div>
+    </header>
+
+    <main class="main">
+        <div class="container">
+            <article class="blog-content">
+                <!-- Title Section -->
+                <section class="blog-section">
+                    <h2 class="section-title">
+                        <i class="fas fa-heading"></i>
+                        Title
+                    </h2>
+                    <div class="section-content">
+                        <h3>Binary Search Algorithm: Efficient Search in Sorted Arrays</h3>
+                        <p>Binary search is one of the most fundamental and efficient searching algorithms in computer science. It works by repeatedly dividing the search interval in half, making it significantly faster than linear search for sorted data.</p>
+                        <p>This algorithm is essential for understanding divide-and-conquer techniques and forms the basis for many advanced algorithms and data structures.</p>
+                    </div>
+                </section>
+
+                <!-- Algorithm Section -->
+                <section class="blog-section">
+                    <h2 class="section-title">
+                        <i class="fas fa-cogs"></i>
+                        Algorithm
+                    </h2>
+                    <div class="section-content">
+                        <h3>Binary Search Algorithm Steps</h3>
+                        <p>Binary search works on the principle of divide and conquer. It requires the array to be sorted beforehand.</p>
+                        <ul>
+                            <li>Start with the entire sorted array</li>
+                            <li>Find the middle element of the current search space</li>
+                            <li>Compare the target value with the middle element</li>
+                            <li>If target equals middle element, return the index</li>
+                            <li>If target is less than middle, search the left half</li>
+                            <li>If target is greater than middle, search the right half</li>
+                            <li>Repeat until element is found or search space is empty</li>
+                        </ul>
+
+                        <h3>Complexity Analysis</h3>
+                        <ul>
+                            <li><strong>Time Complexity:</strong> O(log n) - logarithmic time</li>
+                            <li><strong>Space Complexity:</strong> O(1) for iterative, O(log n) for recursive</li>
+                            <li><strong>Best Case:</strong> O(1) - element found at middle</li>
+                            <li><strong>Worst Case:</strong> O(log n) - element at extremes or not present</li>
+                        </ul>
+
+                        <h3>Prerequisites</h3>
+                        <ul>
+                            <li>Array must be sorted in ascending or descending order</li>
+                            <li>Elements should be comparable</li>
+                            <li>Random access to elements (arrays, not linked lists)</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <!-- Flowchart Section -->
+                <section class="blog-section">
+                    <h2 class="section-title">
+                        <i class="fas fa-project-diagram"></i>
+                        Flowchart
+                    </h2>
+                    <div class="section-content">
+                        <h3>Binary Search Flowchart</h3>
+                        <div class="flowchart">
+                            <div class="flowchart-box">Start</div>
+                            <div class="flowchart-arrow">↓</div>
+                            <div class="flowchart-box">Initialize left=0, right=n-1</div>
+                            <div class="flowchart-arrow">↓</div>
+                            <div class="flowchart-box">left ≤ right?</div>
+                            <div class="flowchart-arrow">↓ Yes</div>
+                            <div class="flowchart-box">mid = (left+right)/2</div>
+                            <div class="flowchart-arrow">↓</div>
+                            <div class="flowchart-box">arr[mid] == target?</div>
+                            <div class="flowchart-arrow">↓ Yes</div>
+                            <div class="flowchart-box">Return mid</div>
+                            <br>
+                            <div class="flowchart-box">arr[mid] > target?</div>
+                            <div class="flowchart-arrow">↓ Yes</div>
+                            <div class="flowchart-box">right = mid - 1</div>
+                            <br>
+                            <div class="flowchart-box">arr[mid] < target?</div>
+                            <div class="flowchart-arrow">↓ Yes</div>
+                            <div class="flowchart-box">left = mid + 1</div>
+                            <div class="flowchart-arrow">↓</div>
+                            <div class="flowchart-box">Return -1 (Not Found)</div>
+                            <div class="flowchart-arrow">↓</div>
+                            <div class="flowchart-box">End</div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Program Section -->
+                <section class="blog-section">
+                    <h2 class="section-title">
+                        <i class="fas fa-code"></i>
+                        Program (Code)
+                    </h2>
+                    <div class="section-content">
+                        <h3>Iterative Binary Search Implementation</h3>
+                        <div class="code-block">
+<span class="keyword">def</span> <span class="function">binary_search</span>(arr, target):
+    <span class="comment"># Initialize left and right pointers</span>
+    left = 0
+    right = len(arr) - 1
+    
+    <span class="keyword">while</span> left <= right:
+        <span class="comment"># Calculate middle index</span>
+        mid = (left + right) // 2
+        
+        <span class="comment"># Check if target is present at mid</span>
+        <span class="keyword">if</span> arr[mid] == target:
+            <span class="keyword">return</span> mid
+        
+        <span class="comment"># If target is greater, ignore left half</span>
+        <span class="keyword">elif</span> arr[mid] < target:
+            left = mid + 1
+        
+        <span class="comment"># If target is smaller, ignore right half</span>
+        <span class="keyword">else</span>:
+            right = mid - 1
+    
+    <span class="comment"># Target not found</span>
+    <span class="keyword">return</span> -1
+
+<span class="comment"># Example usage</span>
+arr = [2, 3, 4, 10, 40, 50, 80, 100]
+target = 40
+
+result = binary_search(arr, target)
+<span class="keyword">if</span> result != -1:
+    print(<span class="string">f"Element found at index {result}"</span>)
+<span class="keyword">else</span>:
+    print(<span class="string">"Element not found"</span>)
+                        </div>
+
+                        <h3>Recursive Binary Search Implementation</h3>
+                        <div class="code-block">
+<span class="keyword">def</span> <span class="function">binary_search_recursive</span>(arr, left, right, target):
+    <span class="comment"># Base case: element not found</span>
+    <span class="keyword">if</span> left > right:
+        <span class="keyword">return</span> -1
+    
+    <span class="comment"># Calculate middle index</span>
+    mid = (left + right) // 2
+    
+    <span class="comment"># Element found</span>
+    <span class="keyword">if</span> arr[mid] == target:
+        <span class="keyword">return</span> mid
+    
+    <span class="comment"># Search in left half</span>
+    <span class="keyword">elif</span> arr[mid] > target:
+        <span class="keyword">return</span> binary_search_recursive(arr, left, mid - 1, target)
+    
+    <span class="comment"># Search in right half</span>
+    <span class="keyword">else</span>:
+        <span class="keyword">return</span> binary_search_recursive(arr, mid + 1, right, target)
+
+<span class="comment"># Example usage</span>
+arr = [2, 3, 4, 10, 40, 50, 80, 100]
+target = 40
+
+result = binary_search_recursive(arr, 0, len(arr) - 1, target)
+<span class="keyword">if</span> result != -1:
+    print(<span class="string">f"Element found at index {result}"</span>)
+<span class="keyword">else</span>:
+    print(<span class="string">"Element not found"</span>)
+                        </div>
+
+                        <h3>Binary Search Variations</h3>
+                        <div class="code-block">
+<span class="comment"># Find first occurrence of target</span>
+<span class="keyword">def</span> <span class="function">find_first_occurrence</span>(arr, target):
+    left, right = 0, len(arr) - 1
+    result = -1
+    
+    <span class="keyword">while</span> left <= right:
+        mid = (left + right) // 2
+        
+        <span class="keyword">if</span> arr[mid] == target:
+            result = mid
+            right = mid - 1  <span class="comment"># Continue searching left</span>
+        <span class="keyword">elif</span> arr[mid] < target:
+            left = mid + 1
+        <span class="keyword">else</span>:
+            right = mid - 1
+    
+    <span class="keyword">return</span> result
+
+<span class="comment"># Find last occurrence of target</span>
+<span class="keyword">def</span> <span class="function">find_last_occurrence</span>(arr, target):
+    left, right = 0, len(arr) - 1
+    result = -1
+    
+    <span class="keyword">while</span> left <= right:
+        mid = (left + right) // 2
+        
+        <span class="keyword">if</span> arr[mid] == target:
+            result = mid
+            left = mid + 1  <span class="comment"># Continue searching right</span>
+        <span class="keyword">elif</span> arr[mid] < target:
+            left = mid + 1
+        <span class="keyword">else</span>:
+            right = mid - 1
+    
+    <span class="keyword">return</span> result
+
+<span class="comment"># Example with duplicates</span>
+arr = [1, 2, 2, 2, 3, 4, 5]
+target = 2
+
+first = find_first_occurrence(arr, target)
+last = find_last_occurrence(arr, target)
+
+print(<span class="string">f"First occurrence at index: {first}"</span>)
+print(<span class="string">f"Last occurrence at index: {last}"</span>)
+                        </div>
+                    </div>
+                </section>
+            </article>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 MIT-NOTES. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
